@@ -1,0 +1,375 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cuponi · Beneficios para empleados</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <h1>Cuponi <small class="beta" aria-label="versión beta">beta</small></h1>
+    <button id="btn-open-forms" class="ghost" data-open="modal-empleado">Únete</button>
+  </header>
+
+  <main id="app" class="view" aria-live="polite">
+    <section id="tab-beneficios" role="tabpanel" aria-labelledby="tab-btn-beneficios">
+      <div class="hero" aria-label="Presentación Cuponi">
+        <div class="hero-text">
+          <span class="hero-pill">Beneficios para tu equipo</span>
+          <h2>Multiplica tu salario con Cuponi</h2>
+          <p>Activa códigos instantáneos, aliados cerca y calcula tu ahorro sin salir de tu móvil.</p>
+          <ul class="hero-highlights" role="list">
+            <li>
+              <span class="hero-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                  <path d="M8 12l3 3 5-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+              <div>
+                <strong>60+</strong>
+                <span>Aliados activos</span>
+              </div>
+            </li>
+            <li>
+              <span class="hero-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 10.5C5 7.46 7.46 5 10.5 5h3A5.5 5.5 0 0 1 19 10.5v3A5.5 5.5 0 0 1 13.5 19h-3A5.5 5.5 0 0 1 5 13.5z" fill="none" stroke="currentColor" stroke-width="2"></path>
+                  <path d="M9 13h6M9 9h2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+              </span>
+              <div>
+                <strong>Bs. 500</strong>
+                <span>Ahorro mensual</span>
+              </div>
+            </li>
+            <li>
+              <span class="hero-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                  <path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+              <div>
+                <strong>24 h</strong>
+                <span>Alta de empresas</span>
+              </div>
+            </li>
+          </ul>
+          <div class="hero-links" aria-label="Accesos directos">
+            <button type="button" class="outline" data-go-tab="cerca">Aliados cerca</button>
+            <button type="button" class="outline" data-go-tab="calculadora">Calculadora</button>
+            <button type="button" class="outline" data-go-tab="perfil">Mi perfil</button>
+          </div>
+          <p class="micro-signature">© 2025 Bauxite Inc — member of the Pazzy Group Limited</p>
+        </div>
+
+        <figure class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 220" role="img" aria-labelledby="hero-figure-title">
+            <title id="hero-figure-title">Personas usando beneficios</title>
+            <defs>
+              <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff5f6d" />
+                <stop offset="100%" stop-color="#ffc371" />
+              </linearGradient>
+              <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2563eb" />
+                <stop offset="100%" stop-color="#7c3aed" />
+              </linearGradient>
+            </defs>
+            <rect x="10" y="20" width="240" height="180" rx="26" fill="url(#heroGrad)" opacity=".25"></rect>
+            <rect x="30" y="40" width="110" height="70" rx="16" fill="#fff"></rect>
+            <rect x="120" y="110" width="120" height="70" rx="20" fill="url(#cardGrad)"></rect>
+            <circle cx="75" cy="120" r="32" fill="#fff" stroke="#e2e8f0" stroke-width="4"></circle>
+            <circle cx="200" cy="80" r="26" fill="#fff" stroke="#e2e8f0" stroke-width="4"></circle>
+            <path d="M60 120c4-14 24-14 28 0" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round"></path>
+            <path d="M188 80c4-10 20-10 24 0" fill="none" stroke="#ff5f6d" stroke-width="4" stroke-linecap="round"></path>
+            <rect x="140" y="125" width="70" height="12" rx="6" fill="#fff" opacity=".9"></rect>
+            <rect x="140" y="145" width="40" height="10" rx="5" fill="#fff" opacity=".7"></rect>
+          </svg>
+        </figure>
+
+        <div class="hero-form-card">
+          <div class="hero-tabs" id="hero-toggle" role="tablist" aria-label="Selecciona registro">
+            <button type="button" data-intent="empleado" aria-selected="true" role="tab">Empleado</button>
+            <button type="button" data-intent="empresa" aria-selected="false" role="tab">Empresa</button>
+          </div>
+          <form class="hero-form" id="hero-form-empleado" data-intent="empleado" name="hero-empleado" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/#gracias-empleado">
+            <input type="hidden" name="form-name" value="hero-empleado">
+            <p class="hidden">
+              <label>Si eres humano, deja vacío
+                <input name="bot-field" tabindex="-1">
+              </label>
+            </p>
+            <label for="hero-empleado-nombre">Nombre y apellido</label>
+            <input id="hero-empleado-nombre" name="nombre" required>
+            <label for="hero-empleado-correo">Correo corporativo</label>
+            <input id="hero-empleado-correo" name="correo" type="email" required>
+            <label for="hero-empleado-empresa">Empresa</label>
+            <input id="hero-empleado-empresa" name="empresa">
+            <button type="submit" class="primary full">Quiero mis descuentos</button>
+            <small>Al enviar aceptas contacto por correo.</small>
+          </form>
+          <form class="hero-form" id="hero-form-empresa" data-intent="empresa" name="hero-empresa" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/#gracias-empresa" hidden>
+            <input type="hidden" name="form-name" value="hero-empresa">
+            <p class="hidden">
+              <label>Si eres humano, deja vacío
+                <input name="bot-field" tabindex="-1">
+              </label>
+            </p>
+            <label for="hero-empresa-razon">Razón social</label>
+            <input id="hero-empresa-razon" name="razon" required>
+            <label for="hero-empresa-contacto">Contacto (correo o WhatsApp)</label>
+            <input id="hero-empresa-contacto" name="contacto" required>
+            <label for="hero-empresa-ciudad">Ciudad</label>
+            <input id="hero-empresa-ciudad" name="ciudad">
+            <button type="submit" class="secondary full">Registrar mi empresa</button>
+            <small>Te escribiremos con los siguientes pasos.</small>
+          </form>
+        </div>
+      </div>
+
+      <div class="list-meta">
+        <div>
+          <p class="muted">Catálogo vivo de aliados</p>
+          <strong id="results-count">0 aliados</strong>
+        </div>
+        <div class="quick-filters" id="quick-filters" aria-label="Filtros rápidos">
+          <button type="button" data-chip="Todas" class="active">Todas</button>
+          <button type="button" data-chip="Comida">Comida</button>
+          <button type="button" data-chip="Salud/Farmacia">Salud</button>
+          <button type="button" data-chip="Gimnasio">Gimnasio</button>
+          <button type="button" data-chip="favoritos" aria-pressed="false">Favoritos</button>
+          <button type="button" id="toggle-compact" class="outline">Vista compacta</button>
+        </div>
+      </div>
+
+      <div class="filters" aria-label="Buscar y filtrar beneficios">
+        <input id="search" placeholder="Buscar comercios o categorías…" aria-label="Buscar comercios o categorías">
+        <label class="sr-only" for="category">Categoría</label>
+        <select id="category" aria-label="Filtrar por categoría"></select>
+        <label class="sr-only" for="order">Ordenar por</label>
+        <select id="order" aria-label="Ordenar aliados">
+          <option value="recomendado">Mejor coincidencia</option>
+          <option value="descuento">Mayor descuento</option>
+          <option value="nombre">A → Z</option>
+        </select>
+        <button id="clear-filters" class="ghost small" type="button">Limpiar filtros</button>
+      </div>
+      <ul id="benefits-list" class="cards" aria-live="polite"></ul>
+
+      <section class="ally-showcase" aria-label="Aliados destacados">
+        <header>
+          <p class="eyebrow">Aliados destacados</p>
+          <h3>Explora por estilo de vida</h3>
+        </header>
+        <div class="ally-grid">
+          <article>
+            <span class="ally-icon" aria-hidden="true">🍔</span>
+            <h4>Sabores urbanos</h4>
+            <p>Combos diarios con hasta 20% OFF en Caracas.</p>
+          </article>
+          <article>
+            <span class="ally-icon" aria-hidden="true">🧘</span>
+            <h4>Wellness</h4>
+            <p>Gimnasios y wellness studios con códigos mensuales.</p>
+          </article>
+          <article>
+            <span class="ally-icon" aria-hidden="true">🛒</span>
+            <h4>Mercados</h4>
+            <p>Supermercados aliados con descuentos en esenciales.</p>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section id="tab-cerca" role="tabpanel" aria-labelledby="tab-btn-cerca" hidden>
+      <p id="geo-status" class="muted">Activa tu ubicación para ordenar por distancia.</p>
+      <ul id="nearby-list" class="cards"></ul>
+    </section>
+
+    <section id="tab-calculadora" role="tabpanel" aria-labelledby="tab-btn-calculadora" hidden>
+      <div class="calc-panel" aria-describedby="calc-instrucciones">
+        <p id="calc-instrucciones" class="muted">Compara cuánto ahorrarías aplicando tus descuentos favoritos.</p>
+        <div class="row">
+          <label for="moneda">Moneda</label>
+          <select id="moneda">
+            <option value="VES">VES</option>
+            <option value="USD">USD</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="tasa">Tasa USD→VES</label>
+          <input id="tasa" type="number" step="0.01" placeholder="Ej: 40.00" inputmode="decimal">
+        </div>
+        <div id="benefit-entries" class="entries"></div>
+        <button id="add-entry" class="primary" type="button">Agregar beneficio</button>
+        <div class="result">
+          <h3>Ahorro estimado</h3>
+          <output id="calc-out">Bs. 0,00</output>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-perfil" role="tabpanel" aria-labelledby="tab-btn-perfil" hidden>
+      <div class="profile">
+        <div class="hello">
+          <h2>¡Hola!</h2>
+          <label for="nombre">Nombre</label>
+          <div class="hello-row">
+            <input id="nombre" placeholder="Opcional">
+            <button id="save-nombre" class="secondary" type="button">Guardar</button>
+          </div>
+        </div>
+        <div class="summary">
+          <h3>Ahorro estimado este mes</h3>
+          <output id="ahorro-mes">Bs. 0,00</output>
+          <div class="ahorro-actions">
+            <button id="sumar-ahorro" class="outline" type="button">Sumar uso</button>
+            <button id="reset-ahorro" class="ghost" type="button">Limpiar</button>
+          </div>
+        </div>
+        <div class="preferences">
+          <h3>Preferencias</h3>
+          <label for="pref-moneda">Moneda</label>
+          <select id="pref-moneda">
+            <option value="VES">VES</option>
+            <option value="USD">USD</option>
+          </select>
+          <label for="pref-tasa">Tasa USD→VES (manual)</label>
+          <input id="pref-tasa" type="number" step="0.01" inputmode="decimal">
+          <button id="save-pref" class="primary" type="button">Guardar</button>
+        </div>
+        <div class="cta-forms">
+          <button class="outline" data-open="modal-empleado" type="button">Suscribirme (empleado)</button>
+          <button class="outline" data-open="modal-empresa" type="button">Registrar mi empresa</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-panel" aria-label="Cobertura Cuponi">
+      <div class="map-copy">
+        <p class="eyebrow">Aliados cerca</p>
+        <h3>Conecta beneficios por zona</h3>
+        <p>Activamos nodos en Caracas, Valencia y Maracaibo. Usa el mapa para saltar directo a los aliados verificados.</p>
+        <div class="map-links">
+          <button class="primary" data-go-tab="cerca">Abrir lista cerca</button>
+          <a class="outline" href="https://www.google.com/maps?q=Cuponi+Venezuela" target="_blank" rel="noopener">Ver en Maps</a>
+        </div>
+      </div>
+      <figure aria-hidden="true">
+        <svg viewBox="0 0 360 220">
+          <defs>
+            <linearGradient id="mapBg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00c6ff"></stop>
+              <stop offset="100%" stop-color="#0072ff"></stop>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="360" height="220" rx="24" fill="url(#mapBg)" opacity=".2"></rect>
+          <path d="M40 160c30-60 80-80 120-60s70 10 100-40" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round"></path>
+          <circle cx="90" cy="120" r="18" fill="#fff"></circle>
+          <circle cx="200" cy="90" r="18" fill="#fff"></circle>
+          <circle cx="280" cy="60" r="18" fill="#fff"></circle>
+          <path d="M90 120l-8 18h16z" fill="#ff2d55"></path>
+          <path d="M200 90l-8 18h16z" fill="#16a34a"></path>
+          <path d="M280 60l-8 18h16z" fill="#f97316"></path>
+        </svg>
+      </figure>
+    </section>
+
+    <footer class="site-signature" role="contentinfo">
+      <small>© 2025 Bauxite Inc — member of the Pazzy Group Limited</small>
+    </footer>
+    <footer class="site-signature secondary" role="contentinfo">
+      <small>© 2025 Bauxite Inc — member of the Pazzy Group Limited</small>
+    </footer>
+  </main>
+
+  <nav class="tabs" role="tablist" aria-label="Navegación">
+    <button id="tab-btn-beneficios" data-tab="beneficios" aria-controls="tab-beneficios" aria-selected="true" role="tab">Beneficios</button>
+    <button id="tab-btn-cerca" data-tab="cerca" aria-controls="tab-cerca" aria-selected="false" role="tab">Cerca</button>
+    <button id="tab-btn-calculadora" data-tab="calculadora" aria-controls="tab-calculadora" aria-selected="false" role="tab">Calculadora</button>
+    <button id="tab-btn-perfil" data-tab="perfil" aria-controls="tab-perfil" aria-selected="false" role="tab">Perfil</button>
+  </nav>
+
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+
+  <dialog id="modal-codigo" aria-labelledby="modal-codigo-title">
+    <article>
+      <h3 id="modal-codigo-title">Tu código de uso</h3>
+      <p class="muted">Muéstralo en caja. Caduca en 60 min.</p>
+      <output id="codigo-out" class="code" aria-live="assertive">000000</output>
+      <button data-close type="button" class="primary">Listo</button>
+    </article>
+  </dialog>
+
+  <dialog id="modal-empleado" aria-labelledby="modal-empleado-title">
+    <article>
+      <h3 id="modal-empleado-title">Suscribirme como empleado</h3>
+      <form name="empleado-cuponi" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/#gracias-empleado">
+        <input type="hidden" name="form-name" value="empleado-cuponi">
+        <p class="hidden">
+          <label>Si eres humano, deja vacío
+            <input name="bot-field" tabindex="-1">
+          </label>
+        </p>
+        <label>Nombre
+          <input name="nombre" required>
+        </label>
+        <label>Correo
+          <input name="correo" type="email" required>
+        </label>
+        <label>Empresa
+          <input name="empresa">
+        </label>
+        <label>Ciudad
+          <input name="ciudad">
+        </label>
+        <button type="submit" class="primary">Enviar</button>
+        <button type="button" data-close class="ghost">Cerrar</button>
+      </form>
+    </article>
+  </dialog>
+
+  <dialog id="modal-empresa" aria-labelledby="modal-empresa-title">
+    <article>
+      <h3 id="modal-empresa-title">Registrar mi empresa/aliado</h3>
+      <form name="empresa-cuponi" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/#gracias-empresa">
+        <input type="hidden" name="form-name" value="empresa-cuponi">
+        <p class="hidden">
+          <label>Si eres humano, deja vacío
+            <input name="bot-field" tabindex="-1">
+          </label>
+        </p>
+        <label>Razón social
+          <input name="razon" required>
+        </label>
+        <label>Contacto (correo o WhatsApp)
+          <input name="contacto" required>
+        </label>
+        <label>Ciudad
+          <input name="ciudad">
+        </label>
+        <label>Categoría
+          <select name="categoria">
+            <option>Comida</option>
+            <option>Salud/Farmacia</option>
+            <option>Gimnasio</option>
+            <option>Supermercado</option>
+            <option>Transporte</option>
+            <option>Otros</option>
+          </select>
+        </label>
+        <label>Descripción
+          <textarea name="descripcion" rows="3"></textarea>
+        </label>
+        <button type="submit" class="primary">Enviar</button>
+        <button type="button" data-close class="ghost">Cerrar</button>
+      </form>
+    </article>
+  </dialog>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
